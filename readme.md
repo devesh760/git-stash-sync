@@ -1,5 +1,5 @@
 # Git Stash Sync 🚀  
-A CLI tool to **automatically track and back up Git stashes to a remote branch**. Never lose your stashes again, even after resetting your laptop!  
+A CLI tool to **automatically track and back up Git stashes to a remote ref. Never lose your stashes again, even after resetting your laptop!  
 
 ## Features  
 ✅ Tracks `git stash push/pop` automatically  
