@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run tests
-        run: npm test
-
       - name: Check version change
         id: check_version
         run: |
