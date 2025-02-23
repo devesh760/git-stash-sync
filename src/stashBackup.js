@@ -61,7 +61,7 @@ async function stashBackup() {
     // Update the ref to point to the stored tarball.
     execSync(`git update-ref ${refName} ${hash}`);
     // Push the ref to the remote repository.
-    execSync(`git push origin ${refName}`);
+    execSync(`git push origin ${refName} --force`);
 
     console.log("Pushed stash tar archive to remote ref:", refName);
   } catch (error) {
