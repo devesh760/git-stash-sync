@@ -12,3 +12,25 @@ A CLI tool to **automatically track and back up Git stashes to a remote ref. Nev
 ### **Via NPM (Recommended)**  
 ```sh
 npm install -g git-stash-sync
+```
+
+## Usage  
+
+### **Sync Stashes**  
+```sh
+    git-stash-sync backup
+```
+The above command will create a compressed backup of your stashes and push them to a remote ref.
+
+### **Restore Stashes**  
+```sh
+    git-stash-sync restore
+```
+The above command will restore your stashes from the remote ref.
+
+### Auto Sync
+You can create a git aliash to automatically sync your stashes on every `git stash push/pop`.  
+```sh
+    git config --global alias.stash '!git stash $@ && git stash-sync backup'
+```
+Now, every time you run `git stash push/pop`, your stashes will be automatically backed up to a remote branch.

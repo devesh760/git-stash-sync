@@ -1,6 +1,22 @@
 {
   "name": "git-stash-sync",
   "version": "1.0.1",
+  "keywords": [
+    "git",
+    "stash",
+    "sync",
+    "multiple",
+    "machines",
+    "git stash sync",
+    "git stash sync multiple machines",
+    "git stash sync across multiple machines",
+    "git stash sync across multiple machines"
+  ],
+  "description": "Sync your git stash across multiple machines",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devesh760/git-check"
+  },
   "scripts": {
     "start": "node bin/index.js"
   },
