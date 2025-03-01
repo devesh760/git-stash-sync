@@ -18,7 +18,7 @@ npm install -g git-stash-sync
 
 ### **Sync Stashes**  
 ```sh
-    git-stash-sync backup
+    git-stash-sync init
 ```
 The above command will create a compressed backup of your stashes and push them to a remote ref.
 
