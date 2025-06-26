@@ -26,5 +26,6 @@ program
     console.log("Backing up stashes...");
     await stashBackup();
   });
+// a comment
 
 program.parse(process.argv);
