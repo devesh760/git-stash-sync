@@ -7,6 +7,7 @@ const simpleGit = require("simple-git");
 const git = simpleGit();
 
 async function stashRestore() {
+  // a comment
   try {
     console.log("Checking for stash backup...");
 
