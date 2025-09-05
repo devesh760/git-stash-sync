@@ -3,8 +3,6 @@ const path = require("path");
 const os = require("os");
 const { execSync } = require("child_process");
 const tar = require("tar");
-const simpleGit = require("simple-git");
-const git = simpleGit();
 
 async function stashBackup() {
   try {
