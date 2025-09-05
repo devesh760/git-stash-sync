@@ -3,11 +3,10 @@ const path = require("path");
 const os = require("os");
 const { execSync } = require("child_process");
 const tar = require("tar");
-const simpleGit = require("simple-git");
-const git = simpleGit();
 
 async function stashBackup() {
   try {
+    console.log("Backing up stash...");
     console.log("Backing up stashes as a compressed tar archive...");
 
     // Get the list of stashes from Git.
@@ -58,10 +57,24 @@ async function stashBackup() {
     // Determine a custom ref name, for example based on the OS username.
     const username = os.userInfo().username;
     const refName = `refs/stash-backup/${username}`;
-    // Update the ref to point to the stored tarball.
+    // Update the local ref to point to the stored tarball.
     execSync(`git update-ref ${refName} ${hash}`);
-    // Push the ref to the remote repository.
-    execSync(`git push origin ${refName} --force`);
+
+    // Optionally push if a remote named 'origin' exists.
+    console.log("Pushing backup to remote...");
+    try {
+      const remotes = execSync("git remote", { encoding: "utf8" })
+        .toString()
+        .split(/\s+/)
+        .filter(Boolean);
+      if (remotes.includes("origin")) {
+        execSync(`git push origin ${refName} --force`);
+      } else {
+        console.log("No remote 'origin' found. Skipping remote push.");
+      }
+    } catch (pushError) {
+      console.log("Skipping remote push due to an error:", pushError.message);
+    }
 
     console.log("Pushed stash tar archive to remote ref:", refName);
   } catch (error) {

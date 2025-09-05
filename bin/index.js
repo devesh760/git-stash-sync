@@ -20,6 +20,14 @@ program
   });
 
 program
+  .command("restore")
+  .description("Restore stashes from the remote tar backup")
+  .action(async () => {
+    console.log("Initializing stash sync...");
+    await stashRestore();
+  });
+
+program
   .command("backup")
   .description("Manually trigger stash backup as a tar archive")
   .action(async () => {
@@ -27,5 +35,12 @@ program
     await stashBackup();
   });
 // a comment
+
+program
+  .command("track")
+  .description("Track stash changes")
+  .action(async () => {
+    console.log("Tracking stash changes...");
+  });
 
 program.parse(process.argv);
